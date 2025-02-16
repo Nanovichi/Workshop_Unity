@@ -30,16 +30,22 @@ public class Interactor : MonoBehaviour
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
                 Debug.Log("in range");
-                if(Input.GetKeyDown(KeyCode.E))
+                interactionText.SetActive(true);    
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactObj.Interact();
                 }
             }
             else
             {
+                interactionText.SetActive(false);
                 Debug.Log("No interactable obj");
             }
-         
+
+        }
+        else
+        {
+            interactionText.SetActive(false);
         }
      
     }
